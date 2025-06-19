@@ -6,7 +6,7 @@ This project provides tools and examples for simulating coupled physical phenome
 
 ## Features
 
-- **Coupled Physics Simulations:** Model interactions between different physical domains (e.g., fluid-structure, thermo-mechanical).
+- **Coupled Physics Simulations:** Model interactions between different physical domains (fluid-structure, thermo-mechanical).
 - **Numerical Methods:** Utilize finite element, finite difference, or finite volume methods for solving coupled partial differential equations.
 - **Visualization:** Output and visualize simulation results for analysis.
 - **Extensible:** Designed for easy integration with additional physics modules or custom solvers.
@@ -18,6 +18,7 @@ This project provides tools and examples for simulating coupled physical phenome
 - **Python 3.x** (for custom scripts)
 - **Multiphysics Simulation Software** (OpenFOAM)
 - **Dependencies:** (NumPy, Matplotlib)
+- **Dynamical system** (OpenModelica)
 
 ### Installation
 
