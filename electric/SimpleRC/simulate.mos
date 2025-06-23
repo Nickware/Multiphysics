@@ -1,0 +1,2 @@
+loadFile("SimpleRC.mo");
+simulate(SimpleRC, startTime=0, stopTime=0.005, numberOfIntervals=1000);
