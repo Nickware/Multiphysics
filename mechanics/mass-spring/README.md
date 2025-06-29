@@ -1,120 +1,209 @@
-# Tutorial: Circuito simple RC con OpenModelica
+# Tutorial: Sistema Masa Resorte con OpenModelica
 
 ### Resumen
 
-Proceso paso a paso para ejecutar un ejemplo en OpenModelica. Se crea un circuito eléctrico RC compuesto de  un (1) resistencia y un (1) condensador, luego se carga en OpenModelica para finalmente observar la simulación.
+Proceso paso a paso para ejecutar un ejemplo en OpenModelica. Se el sistema masa resorte compuesto de  una (1) masa y un (1) resorte. Finalmente se observará las gráficas asociadas a la simulación.
 
 ### Paso 1.Crear el modelo OpenModelica
 
-**Opción A: Usando OMEdit (Interfaz gráfica)**
-
 1. Abrir OMEdit
 2. File → New → Model
-3. Nombre: SimpleRC
-4. Copiar el codigo
-5. Guardar como: SimpleRC.mo
+3. Nombre: SistemaMasaResorte
+4. Tipo: Model
+5. Click en "OK"
+
+### Paso 2.Escribir el Modelo
+
+**1. Ubicar el área de edición**
+
+- Después de crear el nuevo modelo en el Paso 1, se observará una ventana con pestañas
+- Buscar pestaña que indica o "Text View"
+
+**2. Encontrar el editor de código**
+
+- Se observará un área grande y blanca (editor de texto)
+- Puede que ya tenga algo como esto: 
 
 ```modelica
-model SimpleRC "Simple RC Circuit"
-  parameter Real R = 1000 "Resistance in Ohms";
-  parameter Real C = 1e-6 "Capacitance in Farads";
-  parameter Real V_source = 5 "Source voltage";
+model SistemaMasaResorte
+
+end SistemaMasaResorte;
+```
+**3. Reemplazar todo el contenido**
+
+- Selecciona TODO el texto que aparece (Ctrl+A)
+- Borra el contenido existente
+- Pega el código completo:
   
-  Real capacitor_v(start=0) "Capacitor voltage";
-  Real current "Circuit current";
+```modelica
+model SistemaMasaResorte "Sistema masa-resorte-amortiguador"
+  
+  // Parámetros del sistema
+  parameter Real m = 1.0 "Masa (kg)";
+  parameter Real k = 10.0 "Constante del resorte (N/m)";
+  parameter Real c = 0.5 "Coeficiente de amortiguamiento (N⋅s/m)";
+  parameter Real F0 = 5.0 "Fuerza externa (N)";
+  parameter Real omega = 2.0 "Frecuencia de excitación (rad/s)";
+  
+  // Variables de estado
+  Real x(start = 0.0) "Posición (m)";
+  Real v(start = 0.0) "Velocidad (m/s)";
+  Real a "Aceleración (m/s²)";
+  Real F_ext "Fuerza externa aplicada (N)";
+  Real F_resorte "Fuerza del resorte (N)";
+  Real F_amortiguador "Fuerza del amortiguador (N)";
   
 equation
-  current = C * der(capacitor_v);
-  V_source = R * current + capacitor_v;
+  // Cinemática
+  der(x) = v;
+  der(v) = a;
   
-end SimpleRC;
+  // Fuerzas
+  F_ext = F0 * sin(omega * time);
+  F_resorte = -k * x;
+  F_amortiguador = -c * v;
+  
+  // Segunda ley de Newton: F = m⋅a
+  m * a = F_ext + F_resorte + F_amortiguador;
+  
+  annotation(experiment(StartTime = 0, StopTime = 10, Tolerance = 1e-6, Interval = 0.01));
+end SistemaMasaResorte;
 ```
-**Opción B: Usando editor de texto**
+### Paso 3.Verificar la Sintaxis
 
-1. Crear archivo SimpleRC.mo con el código anterior
-2. Guardarlo en un directorio de trabajo
+**Comprobar errores**
 
+- Tools → Check Model
+- O usar Ctrl+Shift+C
+- Si hay errores, aparecerán en la ventana de mensajes
 
-### Paso 2.Verificar el modelo
+**Corregir errores si los hay**
 
-**En línea de comandos:**
+- Revisar la sintaxis de Modelica
+- Verificar que todas las variables estén declaradas
+- Asegúrarse que las ecuaciones estén balanceadas
+
+### Paso 4.Verificar el modelo (opcional), 
 
 ```bash
 # Navegar al directorio del modelo
-cd /ruta/a/tu/modelo
+cd /ruta/al/modelo
 
 # Compilar y generar C++ (opcional)
-omc --target=cpp SimpleRC.mo
+omc --target=cpp SistemaMasaResorte.mo
 
 # O usando el simulador directo
-omc -s SimpleRC.mo
+omc -s SistemaMasaResorte.mo
 ```
 
-### Paso 3. Revisar archivos generados
+### Paso 5. Revisar archivos generados (opcional)
 
 En la carpeta de trabajo revisar los siguientes archivos: 
 
 ```bash
 SimpleRC/
-├── SimpleRC.cpp          # Código C++ principal
-├── SimpleRC.h            # Headers
-├── SimpleRC_functions.cpp # Funciones auxiliares
-├── SimpleRC_info.json    # Información del modelo
+├── SistemaMasaResorte.cpp          # Código C++ principal
+├── SistemaMasaResorte.h            # Headers
+├── SistemaMasaResorte.cpp # Funciones auxiliares
+├── SistemaMasaResorte.json    # Información del modelo
 ├── Makefile              # Para compilación
-└── SimpleRC              # Ejecutable (después de compilar)
+└── SistemaMasaResorte              # Ejecutable (después de compilar)
 ```
+Nota: Aparecerán mas archivos, solo que revisar los mencionar los indicados en el listado.
 
-### Paso 4. Examinar el código generado
+### Paso 6. Examinar el código generado (opcional)
 
 ```bash
 # Ver el código C++ generado
-cat SimpleRC.c | head -50
+cat SistemaMasaResorte.c | head -50
 
 # Ver las funciones del modelo
-grep -A 10 "eqFunction" SimpleRC.c
+grep -A 10 "eqFunction" SistemaMasaResorte.c
 ```
 
-Nota: Puede que en algunas versiones (dependiendo el SO o la distribución (en el caso del SO Linux) el archivo fuente (SimpleRC) sea en formato cpp.
+Nota: Puede que en algunas versiones (dependiendo el SO o la distribución (en el caso del SO Linux) el archivo fuente (SistemaMasaResorte) sea en formato cpp.
 
-### Paso 5. Ejecutar la simulación
+### Paso 7. Ejecutar la simulación 
 
-**Método 1: Desde OMEdit**
+**Configurar la simulación**
 
-1. Simulation → Simulate
-2. Configurar parámetros:
+- Click en el botón "Simulate" (icono de play verde) - Barra superior
+- O ir a Simulation → Simulate - Panel izquierdo - click derecho
+
+**Parámetros de simulación**
+
 - Start Time: 0
-- Stop Time: 0.005
+- Stop Time: 10
 - Number of Intervals: 1000
-3. Clic en "Simulate"
+- Tolerance: 1e-6
 
-### Paso 6. Ver Resultados
-**Visualización en OMEdit**
-1. Después de simular, aparece automáticamente el plotting
-2. Variables disponibles: capacitor_v, current, time
-**Archivos de Resultados**
+**Ejecutar simulación**
+
+- Click "OK" para iniciar
+- Esperar a que termine el proceso
+
+### Paso 8. Visualizar Resultados
+
+**Ventana de ploteo**
+
+- Después de la simulación, se abre automáticamente
+- Si no se abre: Tools → Plot
+
+**Seleccionar variables**
+
+- En el panel izquierdo, expande las variables
+- Click en las variables que quieres graficar:
+  - x (posición)
+  - v (velocidad)
+  - F_ext (fuerza externa)
+
+**Personalizar gráficos**
+
+- Se pueden crear múltiples gráficos
+- Cambiar colores y estilos de línea
+- Agregar títulos y etiquetas
+
+**Archivos de Resultados (opcional)** (Solo si se hizo el paso 4, 5, 6)
+
+- Se pueden ver los archivos en la carpeta de trabajo
 
 ```bash
 # Ver archivo de resultados (formato MAT o CSV)
-ls SimpleRC_res.*
+ls SistemaMasaResorte.*
 
 # Si es CSV, ver con:
-head SimpleRC_res.csv
+head SistemaMasaResorte.csv
 ```
 
-### Paso 7. Personalizar la simulación
-**Cambiar parámetros:**
-```modelica
-simulate(SimpleRC, 
-         stopTime=0.01,
-         numberOfIntervals=2000,
-         variableFilter="capacitor_v|current");
-```
-**Modificar parámetros del modelo**
-```modelica
-simulate(SimpleRC, 
-         stopTime=0.005,
-         simflags="-override R=2000,C=2e-6");
-```
+### Paso 9.  Análisis de Resultados
+**Interpretación física**
+
+- Posición (x): Muestra el desplazamiento de la masa
+- Velocidad (v): Derivada de la posición
+- Fuerza externa: Entrada sinusoidal al sistema
+- Comportamiento: Observa la respuesta del sistema amortiguado
+
+**Experimentos adicionales**
+
+- Cambiar parámetros
+- Modificar k, c, m para ver diferentes comportamientos
+Cambia F0 y omega para diferentes excitaciones
+
+**Condiciones iniciales**
+
+- Modificar x(start = ...) y v(start = ...)
+
+### Paso 10.  Guardar y Exportar
+
+**Guardar modelo**
+
+- File → Save (Ctrl+S)
+- Guarda con extensión .mo
+
+**Exportar resultados**
+
+- File → Export → CSV (para datos)
+- File → Export → Image (para gráficos)
 
 --------------------------------------------
 
