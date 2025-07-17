@@ -74,7 +74,7 @@ cat SimpleRC.c | head -50
 grep -A 10 "eqFunction" SimpleRC.c
 ```
 
-Nota: Puede que en algunas versiones (dependiendo el SO o la distribución (en el caso del SO Linux) el archivo fuente (SimpleRC) sea en formato cpp.
+Nota: Puede que en algunas versiones (dependiendo el SO o la distribución) el archivo fuente (SimpleRC) sea en formato cpp.
 
 ### Paso 5. Ejecutar la simulación
 
@@ -120,7 +120,7 @@ simulate(SimpleRC,
 
 **Notas importantes**
 
-1. **Dependencias**: Asegúrate de tener instalado GCC/MinGW y las bibliotecas de OpenModelica
+1. **Dependencias**: Asegúrarse de tener instalado GCC/MinGW y las bibliotecas de OpenModelica
 2. **Rutas**: Las rutas pueden variar según la instalación y SO
 3. **Permisos**: En Linux, puede requerir permisos de escritura en /tmp
 4. **Memoria**: Simulaciones largas pueden requerir ajustar límites de memoria
