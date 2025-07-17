@@ -31,9 +31,9 @@ end SistemaMasaResorte;
 ```
 **3. Reemplazar todo el contenido**
 
-- Selecciona TODO el texto que aparece (Ctrl+A)
-- Borra el contenido existente
-- Pega el código completo:
+- Seleccionar TODO el texto que aparece (Ctrl+A)
+- Borrar el contenido existente
+- Pegar el código completo:
   
 ```modelica
 model SistemaMasaResorte "Sistema masa-resorte-amortiguador"
@@ -121,7 +121,7 @@ cat SistemaMasaResorte.c | head -50
 grep -A 10 "eqFunction" SistemaMasaResorte.c
 ```
 
-Nota: Puede que en algunas versiones (dependiendo el SO o la distribución (en el caso del SO Linux) el archivo fuente (SistemaMasaResorte) sea en formato cpp.
+Nota: Puede que en algunas versiones (dependiendo el SO o la distribución) el archivo fuente (SistemaMasaResorte) sea en formato cpp.
 
 ### Paso 7. Ejecutar la simulación 
 
@@ -152,7 +152,7 @@ Nota: Puede que en algunas versiones (dependiendo el SO o la distribución (en e
 **Seleccionar variables**
 
 - En el panel izquierdo, expande las variables
-- Click en las variables que quieres graficar:
+- Click en las variables que se desea graficar:
   - x (posición)
   - v (velocidad)
   - F_ext (fuerza externa)
@@ -181,13 +181,13 @@ head SistemaMasaResorte.csv
 - Posición (x): Muestra el desplazamiento de la masa
 - Velocidad (v): Derivada de la posición
 - Fuerza externa: Entrada sinusoidal al sistema
-- Comportamiento: Observa la respuesta del sistema amortiguado
+- Comportamiento: Observar la respuesta del sistema amortiguado
 
 **Experimentos adicionales**
 
 - Cambiar parámetros
 - Modificar k, c, m para ver diferentes comportamientos
-Cambia F0 y omega para diferentes excitaciones
+Cambiar F0 y omega para diferentes excitaciones
 
 **Condiciones iniciales**
 
@@ -209,7 +209,7 @@ Cambia F0 y omega para diferentes excitaciones
 
 **Notas importantes**
 
-1. **Dependencias**: Asegúrate de tener instalado GCC/MinGW y las bibliotecas de OpenModelica
+1. **Dependencias**: Asegúrarse de tener instalado GCC/MinGW y las bibliotecas de OpenModelica
 2. **Rutas**: Las rutas pueden variar según la instalación y SO
 3. **Permisos**: En Linux, puede requerir permisos de escritura en /tmp
 4. **Memoria**: Simulaciones largas pueden requerir ajustar límites de memoria
