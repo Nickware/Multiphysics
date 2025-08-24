@@ -1,12 +1,12 @@
 # La Multifísica
 
-La **multifísica** es un campo de la ingeniería y la ciencia que estudia la interacción de múltiples fenómenos físicos de diferentes dominios. En lugar de analizar cada fenómeno por separado (como la mecánica de fluidos o la transferencia de calor de forma aislada), la multifísica se centra en cómo estos fenómenos se influyen mutuamente.
+La **multifísica** es un campo de la ingeniería y la ciencia que estudia la interacción de múltiples fenómenos físicos de diferentes dominios. En lugar de analizar cada fenómeno por separado (como la mecánica de fluidos o la transferencia de calor de forma aislada), la multifísica se centra en cómo estos fenómenos se influyen mutuamente, regularmente en **diferentes escalas**. 
 
 ---
 
 ## Conceptos Clave y Ejemplos
 
-En la mayoría de los casos, la multifísica se aborda a través de la **simulación numérica** y el **análisis de elementos finitos (FEA)**, ya que las interacciones complejas suelen ser difíciles de resolver analíticamente. Aquí hay algunos ejemplos comunes de acoplamientos multifísicos:
+En la mayoría de los casos, la multifísica se aborda a través de la **simulación numérica** y el empleo de múltiples **métodos y técnicas**, ya que las interacciones complejas suelen ser difíciles de resolver analíticamente. Algunos ejemplos comunes de acoplamientos multifísico:
 
 * **Termo-mecánica:** Estudia la interacción entre la temperatura y la deformación de un material. Por ejemplo, cómo el calentamiento de un motor diésel provoca la expansión térmica de sus componentes y los esfuerzos resultantes.
 * **Termo-fluidodinámica:** Analiza la interacción entre el flujo de fluidos y la transferencia de calor. Esto es crucial en el diseño de intercambiadores de calor, sistemas de refrigeración de motores, y en la aerodinámica de aviones donde el calentamiento por fricción es significativo.
@@ -26,4 +26,4 @@ La comprensión de la multifísica es vital en el diseño y la optimización de 
 * **Medicina:** Diseño de stents, simulación del flujo sanguíneo, y análisis de implantes ortopédicos.
 * **Energía:** Diseño de turbinas eólicas, reactores nucleares, y celdas de combustible.
 
-En esencia, la multifísica permite a los ingenieros y científicos predecir y optimizar el rendimiento de sistemas complejos de una manera mucho más precisa que si se analizaran los fenómenos por separado.
+En esencia, la multifísica permite predecir y optimizar el rendimiento de sistemas complejos de una manera mucho más precisa que si se analizaran los fenómenos por separado.
