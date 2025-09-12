@@ -115,4 +115,4 @@ Para un ejemplo más complejo usando componentes visuales:
 
 - Usar **Tools → Options → Simulation** para ajustar el solver (prueba con DASSL o Euler)
 - Para modelos complejos, considerar usar `Modelica.Fluid.Examples` como referencia
-- Guarda trabajo con **Ctrl+S**
+- Guardar trabajo con **Ctrl+S**
