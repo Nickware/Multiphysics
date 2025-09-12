@@ -45,7 +45,7 @@ En esta etapa, se configuran las cargas que simulan el proceso de frenado:
 El análisis se configura como **transitorio**, lo que permite estudiar la evolución del sistema a lo largo del tiempo. **CalculiX** resolverá las ecuaciones de forma acoplada, calculando en cada paso de tiempo:
 
 - La cantidad de calor generada por la fricción.
-- Cómo se propaga ese calor a través del material del disco.
+- ¿Cómo se propaga ese calor a través del material del disco?.
 - La expansión térmica y las deformaciones resultantes.
 - Las tensiones mecánicas que surgen de la deformación.
 
@@ -55,8 +55,8 @@ El análisis se configura como **transitorio**, lo que permite estudiar la evolu
 
 Una vez que la simulación ha finalizado, los resultados se visualizan en **PrePoMax**. Es posible analizar y post-procesar la información para entender el comportamiento del sistema:
 
-- **Distribución de Temperatura:** Se pueden generar mapas de colores para identificar las zonas del disco que alcanzan las temperaturas más altas.
-- **Deformación:** Se visualiza cómo el disco se deforma debido a la expansión térmica, lo que puede influir en la eficacia del frenado.
-- **Tensiones Mecánicas:** Se analiza la distribución de tensiones, un factor crítico para evaluar la integridad estructural y el riesgo de fallo por fatiga o agrietamiento.
+- **Distribución de Temperatura:** Generar mapas de colores para identificar las zonas del disco que alcanzan las temperaturas más altas.
+- **Deformación:** Visualizar cómo el disco se deforma debido a la expansión térmica, lo que puede influir en la eficacia del frenado.
+- **Tensiones Mecánicas:** Analizar la distribución de tensiones, un factor crítico para evaluar la integridad estructural y el riesgo de fallo por fatiga o agrietamiento.
 
 Este ejemplo demuestra cómo la simulación termomecánica, utilizando software de código abierto, permite a los ingenieros y científicos predecir con precisión los fenómenos acoplados. La interacción entre el calor y la deformación es vital para diseñar sistemas de frenado que sean seguros y eficientes.
