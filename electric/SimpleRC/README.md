@@ -1,6 +1,4 @@
-# Tutorial: Circuito simple RC con OpenModelica
-
-### Resumen
+# Circuito simple RC con OpenModelica
 
 Proceso paso a paso para ejecutar un ejemplo en OpenModelica. Se crea un circuito eléctrico RC compuesto de  un (1) resistencia y un (1) condensador, luego se carga en OpenModelica para finalmente observar la simulación.
 
