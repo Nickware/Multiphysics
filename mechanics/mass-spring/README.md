@@ -1,8 +1,6 @@
-# Tutorial: Sistema Masa Resorte con OpenModelica
+# Sistema Masa Resorte con OpenModelica
 
-### Resumen
-
-Proceso paso a paso para ejecutar un ejemplo en OpenModelica. Se el sistema masa resorte compuesto de  una (1) masa y un (1) resorte. Finalmente se observará las gráficas asociadas a la simulación.
+Proceso paso a paso para ejecutar un ejemplo en OpenModelica. El sistema masa-resorte compuesto de una (1) masa y un (1) resorte. Finalmente se observarán las gráficas asociadas a la simulación.
 
 ### Paso 1.Crear el modelo OpenModelica
 
