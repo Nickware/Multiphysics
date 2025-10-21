@@ -8,7 +8,7 @@ El script facilita la instalación de OpenModelica y sus dependencias, permitien
 
 ## Requisitos
 
-- Sistema operativo basado en Debian/Ubuntu (probado en Deepin 15.10)
+- Sistema operativo basado en Debian/Ubuntu (probado en Zorin 17.3)
 - Acceso a la terminal y permisos de administrador
 
 ## Instalación
@@ -247,3 +247,53 @@ print("=== Todas las pruebas completadas ===\n");
 ```
 
 Si todos estos comandos se ejecutan sin errores críticos, la instalación está funcionando correctamente.
+
+---
+
+# OMPython 
+### (taken from the source)
+
+OMPython is a Python interface that uses ZeroMQ to
+communicate with OpenModelica.
+
+## Dependencies
+
+-   Python 3.x supported
+-   PyZMQ is required
+
+## Installation
+
+Installation using `pip` is recommended.
+
+### Via pip
+
+```bash
+pip install OMPython
+```
+
+### Via source
+
+Clone the repository and run:
+
+```
+cd <OMPythonPath>
+python -m pip install -U .
+```
+
+## Usage
+
+Running the following commands should get you started
+
+```python
+import OMPython
+help(OMPython)
+```
+
+```python
+from OMPython import OMCSessionZMQ
+omc = OMCSessionZMQ()
+omc.sendExpression("getVersion()")
+```
+
+or read the [OMPython documentation](https://openmodelica.org/doc/OpenModelicaUsersGuide/latest/ompython.html)
+online.
