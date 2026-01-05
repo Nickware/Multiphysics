@@ -60,5 +60,8 @@ A continuación se presentan algunas opciones destacadas:
 - **Limitación**: Menos intuitivo para sólidos no lineales complejos (como tejidos biológicos hiperelásticos).
 - **Web**: https://openfoam.org/
 
+### Recomendaciones generales
 
+**FEBio** probablemente sea la opción más alineada: es software libre, comunitario, especializado en biomecánica realista, y se desarrolla en universidades con fuerte orientación académica y ética (como la Universidad de Utah). Además, su enfoque en materiales biológicos no lineales y multifísicos lo hace ideal para investigación avanzada en biomecánica.
 
+Si se busca algo más generalista o con capacidad de integrar fenómenos no clásicos (crecimiento, bioquímica acoplada), **MOOSE** podría ser viable en un entorno colaborativo universitario.
