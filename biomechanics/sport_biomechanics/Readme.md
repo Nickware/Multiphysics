@@ -4,10 +4,6 @@
 
 Más allá del análisis multifísico avanzado, en **biomecánica deportiva y clínica** el enfoque suele estar en la **cinemática y cinética del movimiento humano**, el **procesamiento de señales fisiológicas** (EMG, fuerza, presión plantar, etc.) y la **visualización/retroalimentación para el entrenamiento o rehabilitación**. Para estos fines, existen varias herramientas de **software libre y de código abierto** que han ganado relevancia en entornos académicos, clínicos y de investigación.
 
-Aquí se presentan las más relevantes:
-
----
-
 ### 1. **OpenCap**
 - **Propósito**: Reconstrucción 3D del movimiento humano a partir de videos de teléfonos móviles (usando visión por computadora y modelos musculoesqueléticos).
 - **Ámbito**: Biomecánica clínica y del deporte (análisis de marcha, salto, sentadilla, etc.).
