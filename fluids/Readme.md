@@ -111,7 +111,7 @@ Para un ejemplo más complejo usando componentes visuales:
 - **Problemas de convergencia:** Reducir la tolerancia o ajusta los valores iniciales
 - **Unidades inconsistentes:** Revisar que todas las unidades sean coherentes
 
-### 8. Consejos adicionales
+### 8. Notas adicionales
 
 - Usar **Tools → Options → Simulation** para ajustar el solver (prueba con DASSL o Euler)
 - Para modelos complejos, considerar usar `Modelica.Fluid.Examples` como referencia
