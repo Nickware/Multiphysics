@@ -118,11 +118,11 @@ simulate(SimpleRC,
 
 **Notas importantes**
 
-1. **Dependencias**: Asegúrarse de tener instalado GCC/MinGW y las bibliotecas de OpenModelica
+1. **Dependencias**: Asegurarse de tener instalado GCC/MinGW y las bibliotecas de OpenModelica
 2. **Rutas**: Las rutas pueden variar según la instalación y SO
 3. **Permisos**: En Linux, puede requerir permisos de escritura en /tmp
 4. **Memoria**: Simulaciones largas pueden requerir ajustar límites de memoria
-5. **Mejoras**: Se puede complementar el tutorial incorporando rutinas via OMShell.
+5. **Mejoras**: Se puede complementar el tutorial incorporando rutinas vía OMShell.
 
 **Troubleshooting común**
 
