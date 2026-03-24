@@ -1,12 +1,6 @@
 # Simulación Termo-mecánica
 
-
-
 Este caso de estudio se centra en el **análisis de un freno de disco durante el frenado**, un fenómeno clásico donde la fricción genera calor (fenómeno térmico) que, a su vez, provoca la expansión y deformación del disco (fenómeno mecánico).
-
-------
-
-
 
 ## Metodología de Simulación con Software Libre
 
@@ -18,14 +12,14 @@ Para llevar a cabo esta simulación se utiliza un flujo de trabajo que combina v
 
 
 
-### 1. Modelo Geométrico y Pre-procesamiento
+### 1. Modelo Geométrico y Preprocesamiento
 
-Primero, se crea el modelo 3D del freno de disco y las pastillas en **FreeCAD**. Es fundamental que las geometrías de los componentes en contacto estén correctamente definidas para modelar la fricción. El modelo se exporta a un formato compatible (como `STEP`) y luego se importa en **PrePoMax** para el pre-procesamiento.
+Primero, se crea el modelo 3D del freno de disco y las pastillas en **FreeCAD**. Es fundamental que las geometrías de los componentes en contacto estén correctamente definidas para modelar la fricción. El modelo se exporta a un formato compatible (como `STEP`) y luego se importa en **PrePoMax** para el preprocesamiento.
 
 En PrePoMax, se realiza el mallado de los componentes y se definen las propiedades del material. Para el disco (generalmente de hierro fundido) y las pastillas, es necesario especificar las siguientes propiedades:
 
-- **Propiedades térmicas:** Conductividad térmica, calor específico y coeficiente de convección.
-- **Propiedades mecánicas:** Módulo de Young, coeficiente de Poisson y **coeficiente de expansión térmica**.
+- **Propiedades térmicas:** conductividad térmica, calor específico y coeficiente de convección.
+- **Propiedades mecánicas:** módulo de Young, coeficiente de Poisson y **coeficiente de expansión térmica**.
 
 
 
@@ -36,7 +30,7 @@ En esta etapa, se configuran las cargas que simulan el proceso de frenado:
 - **Carga de Presión:** Se aplica una presión sobre las pastillas de freno para simular la fuerza de apriete.
 - **Coeficiente de Fricción:** Se define un coeficiente de fricción entre las superficies de contacto del disco y las pastillas. Esta fricción es la principal fuente de generación de calor.
 - **Velocidad Angular:** Se establece una velocidad de rotación inicial para el disco, la cual disminuirá a lo largo del tiempo de la simulación.
-- **Condiciones Térmicas:** Se define la temperatura ambiente y las condiciones de convección en las superficies expuestas del disco, simulando el enfriamiento por aire.
+- **Condiciones Térmicas:** Se definen la temperatura ambiente y las condiciones de convección en las superficies expuestas del disco, simulando el enfriamiento por aire.
 
 
 
@@ -51,9 +45,9 @@ El análisis se configura como **transitorio**, lo que permite estudiar la evolu
 
 
 
-### 4. Resultados y Post-procesamiento
+### 4. Resultados y postprocesamiento
 
-Una vez que la simulación ha finalizado, los resultados se visualizan en **PrePoMax**. Es posible analizar y post-procesar la información para entender el comportamiento del sistema:
+Una vez que la simulación ha finalizado, los resultados se visualizan en **PrePoMax**. Es posible analizar y postprocesar la información para entender el comportamiento del sistema:
 
 - **Distribución de Temperatura:** Generar mapas de colores para identificar las zonas del disco que alcanzan las temperaturas más altas.
 - **Deformación:** Visualizar cómo el disco se deforma debido a la expansión térmica, lo que puede influir en la eficacia del frenado.
