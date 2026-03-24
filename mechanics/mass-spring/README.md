@@ -1,6 +1,6 @@
 # Sistema Masa Resorte con OpenModelica
 
-Proceso paso a paso para ejecutar un ejemplo en OpenModelica. El sistema masa-resorte compuesto de una (1) masa y un (1) resorte. Finalmente se observarán las gráficas asociadas a la simulación.
+Proceso paso a paso para ejecutar un ejemplo en OpenModelica. El sistema masa-resorte está compuesto de una (1) masa y un (1) resorte. Finalmente se observarán las gráficas asociadas a la simulación.
 
 ### Paso 1.Crear el modelo OpenModelica
 
@@ -8,9 +8,9 @@ Proceso paso a paso para ejecutar un ejemplo en OpenModelica. El sistema masa-re
 2. File → New → Model
 3. Nombre: SistemaMasaResorte
 4. Tipo: Model
-5. Click en "OK"
+5. Clic en "OK"
 
-### Paso 2.Escribir el Modelo
+### Paso 2.Escribir el modelo
 
 **1. Ubicar el área de edición**
 
@@ -67,7 +67,7 @@ equation
   annotation(experiment(StartTime = 0, StopTime = 10, Tolerance = 1e-6, Interval = 0.01));
 end SistemaMasaResorte;
 ```
-### Paso 3.Verificar la Sintaxis
+### Paso 3.Verificar la sintaxis
 
 **Comprobar errores**
 
@@ -79,7 +79,7 @@ end SistemaMasaResorte;
 
 - Revisar la sintaxis de Modelica
 - Verificar que todas las variables estén declaradas
-- Asegúrarse que las ecuaciones estén balanceadas
+- Asegurarse de que las ecuaciones estén balanceadas
 
 ### Paso 4.Verificar el modelo (opcional), 
 
@@ -107,7 +107,7 @@ SimpleRC/
 ├── Makefile              # Para compilación
 └── SistemaMasaResorte              # Ejecutable (después de compilar)
 ```
-Nota: Aparecerán mas archivos, solo que revisar los mencionar los indicados en el listado.
+Nota: Aparecerán más archivos, solo que revisar los mencionados en el listado.
 
 ### Paso 6. Examinar el código generado (opcional)
 
@@ -119,14 +119,14 @@ cat SistemaMasaResorte.c | head -50
 grep -A 10 "eqFunction" SistemaMasaResorte.c
 ```
 
-Nota: Puede que en algunas versiones (dependiendo el SO o la distribución) el archivo fuente (SistemaMasaResorte) sea en formato cpp.
+Nota: Puede que en algunas versiones (dependiendo del SO o de la distribución) el archivo fuente (SistemaMasaResorte) sea en formato cpp.
 
 ### Paso 7. Ejecutar la simulación 
 
 **Configurar la simulación**
 
 - Click en el botón "Simulate" (icono de play verde) - Barra superior
-- O ir a Simulation → Simulate - Panel izquierdo - click derecho
+- O ir a Simulation → Simulate - Panel izquierdo - clic derecho
 
 **Parámetros de simulación**
 
@@ -150,7 +150,7 @@ Nota: Puede que en algunas versiones (dependiendo el SO o la distribución) el a
 **Seleccionar variables**
 
 - En el panel izquierdo, expande las variables
-- Click en las variables que se desea graficar:
+- Clic en las variables que se desean graficar:
   - x (posición)
   - v (velocidad)
   - F_ext (fuerza externa)
@@ -177,7 +177,7 @@ head SistemaMasaResorte.csv
 **Interpretación física**
 
 - Posición (x): Muestra el desplazamiento de la masa
-- Velocidad (v): Derivada de la posición
+- Velocidad (v): derivada de la posición
 - Fuerza externa: Entrada sinusoidal al sistema
 - Comportamiento: Observar la respuesta del sistema amortiguado
 
@@ -207,11 +207,11 @@ Cambiar F0 y omega para diferentes excitaciones
 
 **Notas importantes**
 
-1. **Dependencias**: Asegúrarse de tener instalado GCC/MinGW y las bibliotecas de OpenModelica
+1. **Dependencias**: Asegurarse de tener instalado GCC/MinGW y las bibliotecas de OpenModelica
 2. **Rutas**: Las rutas pueden variar según la instalación y SO
-3. **Permisos**: En Linux, puede requerir permisos de escritura en /tmp
+3. **Permisos**: En Linux, puede requerir permisos de escritura en la carpeta de ejecución del proyecto
 4. **Memoria**: Simulaciones largas pueden requerir ajustar límites de memoria
-5. **Mejoras**: Se puede complementar el tutorial incorporando rutinas via OMShell.
+5. **Mejoras**: Se puede complementar el tutorial incorporando rutinas vía OMShell.
 
 **Troubleshooting común**
 
