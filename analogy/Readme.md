@@ -3,23 +3,23 @@
 ## 1. Mecánica Clásica
 
 ### Variables Fundamentales
-- **Posición** (x, y, z): Ubicación en el espacio
-- **Velocidad** (v): Derivada temporal de la posición
-- **Aceleración** (a): Derivada temporal de la velocidad
-- **Masa** (m): Propiedad intrínseca del objeto
-- **Fuerza** (F): Agente de cambio del movimiento
+- **Posición** $(x, y, z)$: Ubicación en el espacio
+- **Velocidad** $(v)$: Derivada temporal de la posición
+- **Aceleración** $(a)$: Derivada temporal de la velocidad
+- **Masa** $(m)$: Propiedad intrínseca del objeto
+- **Fuerza** $(F)$: Agente de cambio del movimiento
 
 ### Ecuaciones Principales
-- **Segunda Ley de Newton**: F = ma
-- **Ecuación de movimiento**: d²x/dt² = F(x,ẋ,t)/m
-- **Conservación de energía**: E = ½mv² + U(x)
-- **Conservación de momento**: p = mv
+- **Segunda Ley de Newton**: $F = ma$
+- **Ecuación de movimiento**: $d²x/dt² = F(x,ẋ,t)/m$
+- **Conservación de energía**: $E = ½mv² + U(x)$
+- **Conservación de momento**: $p = mv$
 
 ### Características del Sistema
 - **Determinista**: Estado futuro completamente determinado por condiciones iniciales
 - **Reversible**: Las ecuaciones son simétricas en el tiempo
 - **Espacio de fases**: Coordenadas (posición, momento)
-- **Grados de libertad**: Típicamente 3N para N partículas
+- **Grados de libertad**: Típicamente $3N$ para $N$ partículas
 
 ### Aplicaciones Típicas
 - Péndulos y osciladores
@@ -33,20 +33,20 @@
 
 ### Variables Fundamentales
 - **Densidad** (ρ): Masa por unidad de volumen
-- **Velocidad del fluido** (v⃗): Campo vectorial de velocidades
+- **Velocidad del fluido** $(\overrightarrow{v})$: Campo vectorial de velocidades
 - **Presión** (P): Fuerza normal por unidad de área
 - **Viscosidad** (μ): Resistencia interna al flujo
 - **Temperatura** (T): Estado térmico del fluido
 
 ### Ecuaciones Principales
-- **Ecuación de continuidad**: ∂ρ/∂t + ∇·(ρv⃗) = 0
-- **Ecuaciones de Navier-Stokes**: ρ(∂v⃗/∂t + v⃗·∇v⃗) = -∇P + μ∇²v⃗ + ρg⃗
+- **Ecuación de continuidad**: $∂ρ/∂t + ∇·(ρ\overrightarrow{v}) = 0$
+- **Ecuaciones de Navier-Stokes**: $ρ(∂\overrightarrow{v}/∂t + v\overrightarrow{v}·∇\overrightarrow{v}) = -∇P + μ∇²\overrightarrow{v} + ρ\overrightarrow{g}$
 - **Ecuación de Bernoulli**: P + ½ρv² + ρgh = constante
 - **Ecuación de estado**: P = ρRT (gases ideales)
 
 ### Características del Sistema
 - **Campos continuos**: Variables definidas en cada punto del espacio
-- **No linealidad**: Término convectivo (v⃗·∇v⃗) introduce complejidad
+- **No linealidad**: Término convectivo $(\overrightarrow{v}·∇\overrightarrow{v})$ introduce complejidad
 - **Múltiples escalas**: Desde molecular hasta macroscópica
 - **Disipación**: Irreversibilidad por viscosidad
 
@@ -70,11 +70,11 @@
 ### Ecuaciones Principales
 - **Ley de Ohm**: V = IR
 - **Leyes de Kirchhoff**: 
-  - ΣI = 0 (nodos)
-  - ΣV = 0 (mallas)
+  - $ΣI = 0$ (nodos)
+  - $ΣV = 0$ (mallas)
 - **Ecuaciones diferenciales**:
-  - Capacitor: I = C(dV/dt)
-  - Inductor: V = L(dI/dt)
+  - Capacitor: $I = C(dV/dt)$
+  - Inductor: $V = L(dI/dt)$
 
 ### Características del Sistema
 - **Linealidad**: La mayoría de componentes básicos son lineales
@@ -96,7 +96,7 @@
 
 | Aspecto | Mecánica Clásica | Mecánica de Fluidos | Sistemas Eléctricos |
 |---------|------------------|---------------------|---------------------|
-| **Ecuación tipo** | F = ma | ρ(Dv/Dt) = -∇P + F | L(dI/dt) + RI = V |
+| **Ecuación tipo** | $F = ma$ | $ρ(Dv/Dt) = -∇P + F$ | $L(dI/dt) + RI = V$ |
 | **Variable de estado** | Posición/velocidad | Velocidad/presión | Corriente/voltaje |
 | **Principio de conservación** | Energía/momento | Masa/energía/momento | Energía/carga |
 | **Respuesta temporal** | Segunda derivada | Derivadas parciales | Primera derivada |
@@ -122,11 +122,11 @@
 
 | Mecánica | Fluidos | Eléctrico |
 |----------|---------|-----------|
-| Fuerza (F) | Gradiente de presión (∇P) | Voltaje (V) |
-| Masa (m) | Densidad × volumen (ρV) | Inductancia (L) |
-| Velocidad (v) | Velocidad del fluido (v⃗) | Corriente (I) |
-| Fricción | Viscosidad (μ) | Resistencia (R) |
-| Elasticidad | Compresibilidad | Capacitancia (C) |
+| Fuerza $(F) | Gradiente de presión $(∇P)$ | Voltaje $(V)$ |
+| Masa $(m)$ | Densidad × volumen $(ρV)$ | Inductancia $(L)$ |
+| Velocidad $(v)$ | Velocidad del fluido $(v⃗)$ | Corriente $(I)$ |
+| Fricción | Viscosidad $(μ)$ | Resistencia $(R)$ |
+| Elasticidad | Compresibilidad | Capacitancia $(C)$ |
 
 ### Métodos de Análisis Comunes
 
