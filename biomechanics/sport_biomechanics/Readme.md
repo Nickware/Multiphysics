@@ -48,7 +48,7 @@ Más allá del análisis multifísico avanzado, en **biomecánica deportiva y cl
 - **Integración**: Puede exportar a OpenSim, generar reportes clínicos, calibrar modelos.
 - **Web**: https://github.com/pyCGM2/pyCGM2
 
-> Es una excelente opción si trabajas en entornos universitarios o hospitalarios que requieren reproducibilidad y adaptación a protocolos locales.
+> Es una excelente opción si se trabaja en entornos universitarios o hospitalarios que requieren reproducibilidad y adaptación a protocolos locales.
 
 ---
 
@@ -58,7 +58,7 @@ Más allá del análisis multifísico avanzado, en **biomecánica deportiva y cl
 - **Web**: http://biosig.sourceforge.net/
 - **SigUtil**: Herramientas complementarias en Python para EMG y cinética.
 
-> Útiles si combinas análisis de movimiento con activación muscular o fuerzas de reacción en el suelo.
+> Útiles si se combina análisis de movimiento con activación muscular o fuerzas de reacción en el suelo.
 
 ---
 
