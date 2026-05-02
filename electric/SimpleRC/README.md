@@ -128,5 +128,27 @@ simulate(SimpleRC,
 
 - **Error de compilación**: Verificar que GCC esté en PATH
 - **Archivos no encontrados**: Verificar rutas de instalación de OpenModelica
+
+### OpenModelica y su relacion con otros software
+
+OpenModelica es un entorno de modelado y simulación de código abierto basado en el lenguaje Modelica, compatible con el estándar Modelica Language Specification (MLS), lo que permite portabilidad entre herramientas. [en.wikipedia](https://en.wikipedia.org/wiki/OpenModelica)
+
+## Relación con el ecosistema Modelica
+OpenModelica sigue estrictamente el estándar Modelica, evitando vendor lock-in y permitiendo usar modelos en múltiples herramientas para simulación, generación de FMUs, optimización y control. Desarrollado por el Open Source Modelica Consortium (OSMC) en colaboración con Linköping University, soporta la mayoría del lenguaje Modelica, incluyendo ecuaciones, algoritmos, eventos y paquetes. [modelica](https://modelica.org/tools/)
+
+## Integraciones clave
+- **OMEdit**: Interfaz gráfica propia (basada en Qt/C++) para modelado, simulación y notebooks interactivos (OMNotebook). [openmodelica](https://openmodelica.org/free-and-open-source-software/omeditintegration/)
+- **Enterprise Architect**: Integración con SysML para simulación de sistemas físicos mediante SysPhS. [sparxsystems](https://sparxsystems.com/enterprise_architect_user_guide/17.1/model_simulation/sysml_sim_install_openmodelica.html)
+- **Python/Julia**: API para análisis avanzado, como optimización y control, superando limitaciones de herramientas como MATLAB en DAEs. [ep.liu](https://ep.liu.se/ecp/153/025/ecp18153025.pdf)
+- **OpenModelica.jl**: Framework en Julia para compilación Modelica, compatible con ModelingToolkit.jl y extensiones para variable structure systems. [pdfs.semanticscholar](https://pdfs.semanticscholar.org/01b3/64e1b4326b895cc701973fd07e951e786730.pdf)
+
+## Comparación con otras herramientas
+| Herramienta | Relación con OpenModelica | Ventajas compartidas |
+|-------------|---------------------------|----------------------|
+| Dymola     | Ambas usan Modelica estándar | Portabilidad de modelos  [openmodelica](https://openmodelica.org/doc/OpenModelicaUsersGuide/latest/backwardscompatibility.html) |
+| MATLAB/Simulink | OpenModelica maneja DAEs nativamente | Mejor soporte para ecuaciones acausales  [ep.liu](https://ep.liu.se/ecp/153/025/ecp18153025.pdf) |
+| Wolfram SystemModeler | Competidor comercial | OpenModelica es gratuito y extensible  [modelica](https://modelica.org/tools/) |
+
+OpenModelica se integra con bibliotecas como Modelica Standard Library y soporta FMU para interoperabilidad con software propietario. [build.openmodelica](https://build.openmodelica.org/Documentation/)
 - **Errores de simulación**: Revisar que el modelo no tenga ecuaciones inconsistentes
 
