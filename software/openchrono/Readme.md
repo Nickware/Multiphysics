@@ -108,7 +108,7 @@ cmake .. \
 | `-DENABLE_MODULE_VSG=ON`      | Activa el módulo de visualización moderno (Vulkan Scene Graph). |
 | `-DCMAKE_BUILD_TYPE=Release`  | Compila una versión optimizada para rendimiento.             |
 
-> 📌 **Nota:** Si se tiene problemas con el compilador CUDA (`nvcc`) y GCC, podría necesitar especificar explícitamente la ruta al compilador CUDA con la bandera `-DCUDA_TOOLKIT_ROOT_DIR=/path/to/cuda`.
+> **Nota:** Si se tiene problemas con el compilador CUDA (`nvcc`) y GCC, podría necesitar especificar explícitamente la ruta al compilador CUDA con la bandera `-DCUDA_TOOLKIT_ROOT_DIR=/path/to/cuda`.
 
 ### 3. Compilación (Build)
 
