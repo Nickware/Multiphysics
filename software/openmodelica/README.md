@@ -251,19 +251,18 @@ Si todos estos comandos se ejecutan sin errores críticos, la instalación está
 ---
 
 # OMPython 
-### (taken from the source)
+### (tomado del código fuente)
 
-OMPython is a Python interface that uses ZeroMQ to
-communicate with OpenModelica.
+OMPython es una interfaz de Python que utiliza ZeroMQ para comunicarse con OpenModelica.
 
-## Dependencies
+## Dependencias
 
--   Python 3.x supported
--   PyZMQ is required
+-   Python 3.x suportado
+-   PyZMQ es requerido
 
-## Installation
+## InstalaciÓn
 
-Installation using `pip` is recommended.
+Se recomienda la instalación mediante pip.
 
 ### Via pip
 
@@ -273,16 +272,16 @@ pip install OMPython
 
 ### Via source
 
-Clone the repository and run:
+Clonar el repositorio y ejecutar:
 
 ```
 cd <OMPythonPath>
 python -m pip install -U .
 ```
 
-## Usage
+## Uso
 
-Running the following commands should get you started
+Ejecutar los siguientes comandos le permitirá comenzar:
 
 ```python
 import OMPython
@@ -295,5 +294,5 @@ omc = OMCSessionZMQ()
 omc.sendExpression("getVersion()")
 ```
 
-or read the [OMPython documentation](https://openmodelica.org/doc/OpenModelicaUsersGuide/latest/ompython.html)
-online.
+o leer el [OMPython documentation](https://openmodelica.org/doc/OpenModelicaUsersGuide/latest/ompython.html)
+en linea.
