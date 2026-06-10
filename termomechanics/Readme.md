@@ -1,3 +1,40 @@
+# termo-mecánica
+
+Es una rama de la multifísica que se dedica a estudiar la estrecha relación entre los estados térmicos (temperatura) y la respuesta mecánica (deformación, tensiones, fatiga) de un sistema. En el mundo de la ingeniería, rara vez un sólido experimenta cambios de temperatura sin que esto altere sus dimensiones o su integridad estructural.
+
+### El Corazón de la Termo-mecánica: El Acoplamiento
+
+Lo que hace que la termo-mecánica sea una disciplina de "multifísica" es el **acoplamiento bidireccional**:
+
+1. **Efecto Térmico sobre la Mecánica:** La mayoría de los materiales se expanden al calentarse y se contraen al enfriarse. Si esta expansión está restringida (por ejemplo, una viga empotrada entre dos paredes), se generan **tensiones térmicas** masivas que pueden superar la resistencia del material y causar deformaciones permanentes o fracturas.
+2. **Efecto Mecánico sobre lo Térmico:** La deformación plástica (cuando un metal se deforma más allá de su límite elástico) genera calor interno. Además, los cambios en la geometría del componente debido a la carga mecánica pueden alterar su capacidad para disipar calor, cambiando así su distribución de temperatura.
+
+---
+
+### Factores Determinantes
+
+Para modelar estos sistemas, los ingenieros deben considerar tres parámetros físicos fundamentales que definen el comportamiento de los materiales:
+
+* **Coeficiente de Expansión Térmica ($\alpha$):** Indica cuánto se dilata el material por cada grado de incremento de temperatura. Es el responsable directo de las deformaciones geométricas.
+* **Conductividad Térmica ($k$):** Determina qué tan rápido se mueve el calor a través del sólido. Un material con baja conductividad tendrá grandes gradientes térmicos (partes muy calientes cerca de una fuente y partes frías lejos), lo cual es el "caldo de cultivo" para el **choque térmico**.
+* **Módulo de Young ($E$):** La rigidez del material. A medida que la temperatura aumenta, la mayoría de los materiales pierden rigidez ($E$ disminuye), lo que los hace más propensos a fallar bajo cargas mecánicas.
+---
+
+### Aplicaciones de la Termo-mecánica
+
+Esta rama es crítica en industrias donde el calor extremo es parte del funcionamiento normal:
+
+* **Motores de Combustión y Turbinas:** Las palas de una turbina de gas operan a temperaturas altísimas mientras rotan a altas velocidades. El análisis termo-mecánico es necesario para asegurar que la expansión térmica no haga que las palas toquen la carcasa del motor.
+* **Electrónica de Potencia:** Los procesadores y chips se calientan y enfrían constantemente. La diferencia de expansión térmica entre los componentes electrónicos (silicio) y la placa de circuito (cobre/fibra de vidrio) provoca que las soldaduras fallen con el tiempo por **fatiga térmica**.
+* **Diseño de Frenos:** Como se discutió anteriormente, la fricción entre la pastilla y el disco genera un pico de calor súbito. Si el disco no puede disipar el calor o acomodar la expansión térmica, se deforma (frenado con vibración) o se agrieta.
+* **Estructuras Aeroespaciales:** Durante la reentrada atmosférica, el rozamiento con el aire genera temperaturas extremas. La estructura debe mantenerse íntegra mecánicamente a pesar de la drástica reducción de resistencia del material causada por el calor.
+
+### ¿Por qué es un desafío de simulación?
+
+Resolver esto manualmente es casi imposible debido a que las ecuaciones diferenciales están **acopladas**: la solución de la parte térmica depende de la geometría mecánica, y la geometría mecánica depende de la solución térmica.
+
+Por ello, se utilizan softwares de **elementos finitos (FEA)** que resuelven iterativamente ambos problemas en pequeños pasos de tiempo, asegurando que, al final de cada iteración, el campo de temperaturas y el campo de deformaciones sean físicamente coherentes entre sí.
+
 # Simulación Termo-mecánica
 
 Este caso de estudio se centra en el **análisis de un freno de disco durante el frenado**, un fenómeno clásico donde la fricción genera calor (fenómeno térmico) que, a su vez, provoca la expansión y deformación del disco (fenómeno mecánico).
