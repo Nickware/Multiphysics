@@ -45,28 +45,28 @@ Bullet Physics se instala fácilmente en Linux vía paquetes o compilación desd
 
 ## Método 1: Paquete oficial (Recomendado - Ubuntu/Debian)
 
-```
-bashsudo apt update
+```bash
+sudo apt update
 sudo apt install libbullet-dev bullet-dev-tools libbulletml-dev
 ```
 
 **Verificación**:
 
-```
-bashpkg-config --modversion bullet
+```bash
+pkg-config --modversion bullet
 # Debería mostrar versión (ej: 3.25)
 ```
 
 ## Método 2: Compilación desde fuente (Última versión)
 
-```
-bash# Dependencias
+
+```bash
+# Dependencias
 sudo apt install git cmake build-essential libx11-dev libxi-dev libxrandr-dev libgl1-mesa-dev libglfw3-dev
 
 # Clonar y compilar
 git clone https://github.com/bulletphysics/bullet3.git
-cd bullet3
-mkdir build && cd build
+cd bullet3/build3
 cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_BULLET2_DEMOS=ON -DBUILD_EXTRAS=ON
 make -j$(nproc)
 sudo make install
@@ -74,8 +74,8 @@ sudo make install
 
 ## Uso en CMake project
 
-```
-text# CMakeLists.txt
+```text
+# CMakeLists.txt
 find_package(Bullet REQUIRED)
 target_link_libraries(tu_proyecto 
     ${BULLET_LIBRARIES} 
@@ -85,8 +85,8 @@ target_link_libraries(tu_proyecto
 
 ## Ejemplo básico C++
 
-```
-cpp#include <btBulletDynamicsCommon.h>
+```cpp
+#include <btBulletDynamicsCommon.h>
 
 int main() {
     btDiscreteDynamicsWorld* dynamicsWorld = new btDiscreteDynamicsWorld(...);
@@ -98,9 +98,9 @@ int main() {
 
 ## Verificación con demos
 
-```
-bashcd bullet3/build
-./bin/App_ExampleBrowser  # Lanza demos interactivas
+```bash
+cd bullet3/build3/examples
+./App_ExampleBrowser  # Lanzar demos interactivas
 ```
 
 **Notas**: Paquetes incluyen headers en `/usr/include/bullet/` y libs en `/usr/lib/x86_64-linux-gnu/`. Perfecto para desarrollo inmediato sin compilación.[isaaclacoba.github+1](http://isaaclacoba.github.io/tinman/posts/introduccion-bullet/introduccion-a-bullet-physics.html)

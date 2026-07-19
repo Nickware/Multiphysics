@@ -26,8 +26,45 @@ MOOSE soporta formulaciones estacionarias y transitorias, esquemas implícitos p
 
 Aunque se ha usado mucho en contexto nuclear (deformación y daño de combustibles, transferencia de calor, acople termo-mecánico-hidráulico-químico), el framework es genérico y se ha aplicado a difusión, transporte reactivo, mecánica de sólidos, flujo en medios porosos y otros. Existen aplicaciones “hijas” especializadas (por ejemplo, para geociencias o corrosión) construidas encima de MOOSE que reutilizan su infraestructura numérica pero añaden física y modelos específicos.youtube+1
 
-## Curva de aprendizaje
+# Instalación de MOOSE en Linux
 
-Para sacarle todo el provecho necesitas cierta comodidad con C++ y con formulaciones en elementos finitos, aunque hay tutoriales que muestran cómo correr ejemplos de difusión y otros problemas simples sólo tocando archivos de entrada. Comparado con paquetes puramente GUI, la curva de entrada es más empinada, pero a cambio obtienes un entorno muy flexible para investigación y desarrollo de nuevos modelos multifísicos.youtube+2
+Método preferido para obtener las dependencias necesarias para el desarrollo de aplicaciones basadas en MOOSE es a través del amplio conjunto de bibliotecas disponibles en Conda. Siga estos pasos para crear un entorno en su máquina utilizando Conda.
 
-(En construcción)
+
+```bash
+curl -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
+bash Miniforge3-Linux-x86_64.sh -b -p ~/miniforge
+```
+
+Siga los pasos siguientes según su plataforma para instalar Miniforge. Si tiene problemas durante estos pasos, visite nuestro guía de Solución de Problemas de Conda.
+
+Con Miniforge instalado en su directorio personal, exporte el PATH para poder utilizarlo:
+
+```bash
+export PATH=$HOME/miniforge/bin:$PATH
+```
+
+Ahora que puede ejecutar conda, inicialícelo y luego salga del terminal:
+
+```bash
+conda init --all
+exit
+```
+
+Al reiniciar su terminal, debería ver un prefijo (base) en su línea de comandos. Esto indica que está en el entorno base y Conda está listo para operar:
+
+```bash
+(base) ~>
+```
+
+La próxima acción después de una instalación fresca es realizar una actualización del entorno base de Conda:
+
+```bash
+conda update --all --yes
+```
+
+Agregue la canala pública de INL para tener acceso a la biblioteca de paquetes de Conda de INL:
+
+```bash
+conda config --add channels https://conda.software.inl.gov/public
+```
