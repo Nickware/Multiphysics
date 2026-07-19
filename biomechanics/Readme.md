@@ -22,7 +22,7 @@ La biomecánica es la disciplina que aplica los principios de la mecánica y la 
 
 Algunos de los más citados en listas académicas son **Bases biomecánicas del sistema musculoesquelético** de Nordin y Frankel, **Biomecánica: bases del movimiento humano** de Hamill, Knutzen y Derrick, y **Biomecánica y anatomía funcional** de Dufour y Pillu. [psfunizar10.unizar](https://psfunizar10.unizar.es/br13/egAsignaturas.php?codigo=25648)
 
-## Textos muy recomendados
+## Textos recomendados
 
 - **Nordin y Frankel, Bases biomecánicas del sistema musculoesquelético**. Es un clásico para entender hueso, cartílago, tendones, articulaciones y aplicaciones clínicas; suele considerarse de referencia fuerte en fisioterapia, ortopedia y medicina del movimiento. [books.google](https://books.google.com/books/about/Biomecanica_basica_del_sistema_musculoes.html?id=bM4fAAAACAAJ)
 - **Hamill, Knutzen y Derrick, Biomecánica: bases del movimiento humano**. Es muy útil para fundamentos de cinemática, cinética y análisis del movimiento humano, con enfoque claro y bastante usado en docencia. [psfunizar10.unizar](https://psfunizar10.unizar.es/br13/egAsignaturas.php?codigo=25648)
