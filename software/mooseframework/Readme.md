@@ -1,70 +1,176 @@
 # MOOSE
 
-MOOSE (Multiphysics Object-Oriented Simulation Environment) es un framework de elementos finitos y simulación multifísica desarrollado principalmente en Idaho National Laboratory, pensado para construir códigos de simulación acoplada de forma relativamente rápida y modular.youtube+1
+MOOSE (Multiphysics Object-Oriented Simulation Environment) es un framework de elementos finitos para construir aplicaciones científicas multifísicas. No es un programa FEA monolítico: proporciona mallas, ensamblaje, solvers, paralelización y componentes reutilizables para que cada aplicación defina su física.
 
-## Qué es MOOSE
+## Áreas de aplicación
 
-MOOSE no es un “programa FEA” monolítico tipo Abaqus o Ansys, sino una **plataforma** para desarrollar aplicaciones científicas basadas en el método de elementos finitos. Proporciona infraestructura numérica, gestión de mallas, paralelización y un sistema de componentes reutilizables (kernels, materiales, BCs, etc.) sobre los que construyes el código de tu problema físico.youtube+1
+MOOSE resulta especialmente útil cuando varias ecuaciones deben resolverse de forma acoplada:
 
-## Arquitectura y tecnologías
+- transferencia de calor y termo-mecánica;
+- mecánica de sólidos, plasticidad y fractura;
+- transporte reactivo y difusión-reacción;
+- flujo en medios porosos y geomecánica;
+- combustibles, reactores nucleares y daño de materiales;
+- electroquímica, corrosión y baterías;
+- crecimiento, remodelación y mecanobiología;
+- problemas transitorios grandes ejecutados en paralelo.
 
-El framework está escrito en C++ moderno, usando PETSc para el ensamblaje y resolución de sistemas lineales/no lineales y libMesh para la parte de elementos finitos. La definición de problemas se hace vía archivos de entrada de texto estructurados, mientras que la extensión de física nueva típicamente requiere implementar clases C++ que heredan de las bases de MOOSE (por ejemplo, kernels para términos de la ecuación, materiales, postprocesadores).youtube+1
+La aplicación se configura normalmente con archivos de entrada. Cuando los kernels, materiales o condiciones disponibles no son suficientes, se implementan componentes C++ que extienden las clases de MOOSE.
 
-## Enfoque multifísica
+## Arquitectura y conceptos básicos
 
-Una de las ideas centrales de MOOSE es el acoplamiento “plug-and-play” de diferentes ecuaciones y campos (difusión, mecánica, transferencia de calor, fluido, etc.) en el mismo dominio o dominios acoplados. Esto lo hace especialmente atractivo para problemas complejos en ingeniería nuclear, geomecánica, reactores, flujo en medios porosos y otros sistemas donde varias físicas interactúan fuertemente.youtube+1
+MOOSE se apoya en PETSc para la solución de sistemas lineales y no lineales y en libMesh para elementos finitos. Un caso típico combina:
 
-## Flujo de trabajo básico
+- `Mesh`: geometría o malla;
+- `Variables`: campos desconocidos;
+- `Kernels`: términos de las ecuaciones débiles;
+- `Materials`: propiedades constitutivas;
+- `BCs`: condiciones de contorno;
+- `Executioner`: solución estacionaria o transitoria;
+- `Postprocessors` y `Outputs`: magnitudes y archivos de salida.
 
-En un caso típico, el usuario define malla, variables, ecuaciones y condiciones de contorno en un archivo de entrada, y la aplicación basada en MOOSE se encarga de montar y resolver el problema. Para tareas más avanzadas, se generan nuevas clases C++ que representan diferentes piezas de la formulación débil (kernels), propiedades de materiales dependientes de campo, fuentes, etc., que luego se activan desde el archivo de entrada.youtube+2
+## Instalación y configuración en Linux
 
-## Capacidades numéricas
+La ruta exacta depende de la versión de MOOSE y de la distribución Linux. Se recomienda usar el procedimiento oficial de la [documentación de instalación de MOOSE](https://mooseframework.inl.gov/getting_started/installation/index.html) y registrar la revisión del repositorio utilizada.
 
-MOOSE soporta formulaciones estacionarias y transitorias, esquemas implícitos para EDP acopladas, refinamiento adaptativo de malla y ejecución paralela de alta escala mediante MPI. Su diseño permite aprovechar hardware de cómputo intensivo en clusters y supercomputadores para simulaciones 3D grandes y de larga duración.[[youtube](https://www.youtube.com/watch?v=QPuK6OdF2hM)]
+### 1. Dependencias y entorno Conda
 
-## Casos de uso típicos
+En una instalación nueva de Ubuntu o Debian, instalar herramientas básicas:
 
-Aunque se ha usado mucho en contexto nuclear (deformación y daño de combustibles, transferencia de calor, acople termo-mecánico-hidráulico-químico), el framework es genérico y se ha aplicado a difusión, transporte reactivo, mecánica de sólidos, flujo en medios porosos y otros. Existen aplicaciones “hijas” especializadas (por ejemplo, para geociencias o corrosión) construidas encima de MOOSE que reutilizan su infraestructura numérica pero añaden física y modelos específicos.youtube+1
+```bash
+sudo apt update
+sudo apt install -y git curl build-essential cmake gcc g++
+```
 
-# Instalación de MOOSE en Linux
-
-Método preferido para obtener las dependencias necesarias para el desarrollo de aplicaciones basadas en MOOSE es a través del amplio conjunto de bibliotecas disponibles en Conda. Siga estos pasos para crear un entorno en su máquina utilizando Conda.
-
+Instalar Miniforge para disponer de Conda sin modificar el Python del sistema:
 
 ```bash
 curl -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
-bash Miniforge3-Linux-x86_64.sh -b -p ~/miniforge
+bash Miniforge3-Linux-x86_64.sh -b -p "$HOME/miniforge3"
+source "$HOME/miniforge3/etc/profile.d/conda.sh"
+conda init bash
 ```
 
-Siga los pasos siguientes según su plataforma para instalar Miniforge. Si tiene problemas durante estos pasos, visite nuestro guía de Solución de Problemas de Conda.
-
-Con Miniforge instalado en su directorio personal, exporte el PATH para poder utilizarlo:
+Abrir una nueva terminal o cargar el entorno y verificar:
 
 ```bash
-export PATH=$HOME/miniforge/bin:$PATH
+conda --version
 ```
 
-Ahora que puede ejecutar conda, inicialícelo y luego salga del terminal:
+### 2. Obtener MOOSE
+
+Clonar el repositorio oficial en una ruta de trabajo:
 
 ```bash
-conda init --all
-exit
+git clone https://github.com/idaholab/moose.git "$HOME/moose"
+cd "$HOME/moose"
 ```
 
-Al reiniciar su terminal, debería ver un prefijo (base) en su línea de comandos. Esto indica que está en el entorno base y Conda está listo para operar:
+Usar el archivo de entorno y las instrucciones asociadas a la revisión elegida. Como patrón general, la configuración se realiza con Conda y después se compila el framework o una aplicación hija. No conviene mezclar dependencias de dos revisiones distintas.
 
 ```bash
-(base) ~>
+conda env create -f environment.yml
+conda activate moose
 ```
 
-La próxima acción después de una instalación fresca es realizar una actualización del entorno base de Conda:
+Si la revisión no contiene `environment.yml` o usa otro nombre de entorno, seguir el archivo de instalación incluido por esa revisión. El nombre `moose` del entorno es ilustrativo y puede variar.
+
+### 3. Configuración de una aplicación
+
+MOOSE se usa normalmente desde una aplicación, no desde el repositorio del framework de forma aislada. Un flujo habitual es:
 
 ```bash
-conda update --all --yes
+cd "$HOME/moose"
+make -j2
 ```
 
-Agregue la canala pública de INL para tener acceso a la biblioteca de paquetes de Conda de INL:
+Después, entrar en una aplicación compatible, revisar su `Makefile` y compilarla con los comandos indicados por esa aplicación. Para ejecuciones paralelas se puede usar MPI cuando esté configurado:
 
 ```bash
-conda config --add channels https://conda.software.inl.gov/public
+mpirun -n 2 ./mi_aplicacion-opt -i input.i
 ```
+
+El ejecutable, el nombre del entorno Conda y la disponibilidad de MPI dependen de la aplicación y de la versión de MOOSE.
+
+## Pruebas después de instalar
+
+### Prueba 1: entorno y compilador
+
+```bash
+conda info --envs
+which g++
+git -C "$HOME/moose" rev-parse --short HEAD
+```
+
+Resultado esperado: el entorno activo aparece en Conda, se encuentra un compilador C++ y se muestra la revisión de MOOSE.
+
+### Prueba 2: pruebas del framework
+
+Desde el repositorio de MOOSE, ejecutar el objetivo disponible en la revisión instalada:
+
+```bash
+cd "$HOME/moose"
+make -j2
+./run_tests -j2
+```
+
+En algunas revisiones el lanzador de pruebas o sus opciones pueden variar. Si `run_tests` no existe, consultar `make help` y la documentación de esa revisión en lugar de asumir que la compilación fue correcta.
+
+Resultado esperado: compilación sin errores y pruebas reportadas como aprobadas. Los fallos de infraestructura deben separarse de los fallos físicos de una aplicación.
+
+### Prueba 3: caso de difusión
+
+La prueba más útil para una aplicación nueva es un problema pequeño de difusión o calor con solución conocida. El archivo de entrada debe definir una malla simple, una variable, un `Diffusion` kernel, condiciones de contorno, un `Executioner` estacionario y un postprocesador.
+
+```bash
+./mi_aplicacion-opt -i test_diffusion.i
+```
+
+Comprobar que se generan los archivos de salida y que la solución respeta las condiciones de contorno. Comparar el resultado con la solución analítica antes de añadir acoplamientos no lineales.
+
+### Prueba 4: paralelización
+
+Cuando la aplicación esté configurada con MPI:
+
+```bash
+mpirun -n 2 ./mi_aplicacion-opt -i test_diffusion.i
+```
+
+Comparar la solución de uno y dos procesos dentro de una tolerancia definida. Esta prueba verifica la ejecución distribuida, pero no demuestra por sí misma la validez del modelo físico.
+
+## Casos de uso para implementar
+
+### Termomecánica de un freno de disco
+
+Reproducir el caso de [termomecánica](../../termomechanics/Readme.md) con un campo de temperatura acoplado a desplazamientos. Empezar con conducción estacionaria, añadir expansión térmica y terminar con fricción o generación de calor dependiente del tiempo.
+
+### Flujo y transporte en un medio poroso
+
+Implementar presión, velocidad y transporte de una especie en una muestra porosa. El caso debe incluir permeabilidad, difusión, fuente o reacción y una comparación con un problema unidimensional conocido.
+
+### Daño o fractura de un material
+
+Modelar una probeta sometida a tracción con una variable de daño o fase. El objetivo es estudiar carga máxima, localización y sensibilidad a la malla, dejando explícitas la ley constitutiva y la regularización utilizadas.
+
+### Transferencia de calor en un componente electrónico
+
+Resolver conducción con fuentes volumétricas y convección en la frontera. Después, acoplar deformación térmica y comparar temperatura máxima y desplazamiento con un modelo reducido.
+
+### Modelo mecanobiológico
+
+Acoplar deformación, difusión de nutrientes y una ley de crecimiento o remodelación. Es un caso adecuado para una aplicación propia porque requiere materiales y términos de ecuación específicos.
+
+## Buenas prácticas
+
+- Fijar la revisión de MOOSE y de la aplicación antes de comparar resultados.
+- Mantener archivos de entrada, mallas, parámetros y scripts de ejecución en control de versiones.
+- Validar primero cada física por separado y después el acoplamiento.
+- Reportar solver, tolerancias, paso de tiempo, número de procesos y criterios de convergencia.
+- Ejecutar estudios de sensibilidad de malla y de paso temporal.
+- No interpretar una simulación convergida como una simulación validada físicamente.
+
+## Referencias
+
+- [Documentación oficial de MOOSE](https://mooseframework.inl.gov/)
+- [Instalación de MOOSE](https://mooseframework.inl.gov/getting_started/installation/index.html)
+- [Repositorio oficial](https://github.com/idaholab/moose)
