@@ -1,6 +1,6 @@
 # Sistema Masa Resorte con OpenModelica
 
-Proceso paso a paso para ejecutar un ejemplo en OpenModelica. El sistema masa-resorte está compuesto de una (1) masa y un (1) resorte. Finalmente se observarán las gráficas asociadas a la simulación.
+Proceso paso a paso para ejecutar en OpenModelica un sistema masa-resorte-amortiguador sometido a una fuerza sinusoidal externa. El modelo permite observar cómo la masa responde a la rigidez del resorte, al amortiguamiento y a la frecuencia de excitación. Finalmente se visualizarán las gráficas asociadas a la simulación.
 
 ### Paso 1.Crear el modelo OpenModelica
 
