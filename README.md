@@ -27,3 +27,42 @@ La comprensión de la multifísica es vital en el diseño y la optimización de 
 * **Energía:** Diseño de turbinas eólicas, reactores nucleares, y celdas de combustible.
 
 En esencia, la multifísica permite predecir y optimizar el rendimiento de sistemas complejos de una manera mucho más precisa que si se analizaran los fenómenos por separado.
+
+---
+
+## Índice de proyectos
+
+Los contenidos del repositorio se organizan en cuatro tipos. La clasificación indica el propósito principal del README actual; un proyecto puede evolucionar posteriormente hacia otra categoría.
+
+### Teoría y contexto
+
+- [Aerodinámica](aerodynamics/Readme.md): conceptos, aplicaciones y textos de referencia.
+- [Física del efecto de succión y turbulencias](aerodynamics/physics/Readme.md): contexto físico y recomendaciones para ciclistas.
+- [Analogías entre sistemas dinámicos](analogy/Readme.md): comparación entre mecánica, fluidos y electricidad.
+- [Biomecánica](biomechanics/Readme.md): fundamentos, aplicaciones y software libre.
+- [Biomecánica deportiva y clínica](biomechanics/sport_biomechanics/Readme.md): herramientas para movimiento, señales y análisis clínico.
+
+### Tutoriales ejecutables
+
+- [Circuito RC con OpenModelica](electric/SimpleRC/README.md): modelo Modelica y script de simulación.
+- [Tanque con flujo en OpenModelica](fluids/Readme.md): tutorial de modelado y simulación de un tanque.
+- [Sistema masa-resorte con OpenModelica](mechanics/mass-spring/README.md): modelo con amortiguamiento y fuerza sinusoidal.
+
+### Casos de estudio
+
+- [Efectos aerodinámicos de un camión sobre un ciclista](aerodynamics/case_1/Readme.md): propuesta de CFD acoplada con dinámica.
+- [Distancia segura para un ciclista](aerodynamics/case_2/Readme.md): estudio paramétrico de fuerza lateral y estabilidad.
+- [Freno de disco termomecánico](termomechanics/Readme.md): flujo FreeCAD, PrePoMax y CalculiX.
+
+### Documentación de software
+
+- [Bullet Physics](software/bullet_physics/Readme.md): motor de física 3D y guía de instalación.
+- [MOOSE](software/mooseframework/Readme.md): framework para aplicaciones multifísicas con elementos finitos.
+- [Project Chrono](software/openchrono/Readme.md): simulación mecánica, vehículos, GPU y PyChrono.
+- [OpenModelica](software/openmodelica/README.md): instalación y pruebas de OMShell y `omc`.
+- [PrePoMax](software/PrePoMax/Readme.md): pre y postprocesador para CalculiX.
+- [ReactPhysics3D](software/reactphysics3d/Readme.md): motor de cuerpos rígidos y detección de colisiones.
+
+## Mejoras de documentación
+
+Las oportunidades de mejora de cada proyecto están reunidas en [docs/README.md](docs/README.md). El documento distingue entre contenido conceptual, tutoriales reproducibles, casos de estudio y fichas de software.
